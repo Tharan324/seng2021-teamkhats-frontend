@@ -1,4 +1,4 @@
-[
+let revenueData = [
     {
       "label": "Jan",
       "revenue": 64854
@@ -48,3 +48,5 @@
       "revenue": 87436
     }
   ]
+
+  export default revenueData;
