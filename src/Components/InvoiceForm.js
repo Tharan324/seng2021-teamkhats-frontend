@@ -7,8 +7,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Item from './ItemForm';
+import NavbarInside from './NavbarInside';
 
-function InvoiceForm ({ token }) {
+function InvoiceForm ({ token, setToken }) {
   const [customerId, setCustomerId] = useState('');
   const [customerName, setCustomerName] = useState('');
   const [customerCity, setCustomerCity] = useState('');
@@ -118,6 +119,7 @@ function InvoiceForm ({ token }) {
 
   return (
     <>
+      <NavbarInside token={token} setToken={setToken}/>
       <div className='d-flex justify-content-center align-items-center'>
         <Paper sx={{ width: '80%', padding: '5%' }}>
           <Grid align='center'>

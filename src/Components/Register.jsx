@@ -1,6 +1,6 @@
 import { Button, Paper, TextField } from '@mui/material';
 import axios from 'axios';
-import { React, useState } from 'react';
+import { React, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Register = ({ token, setToken }) => {
@@ -13,11 +13,11 @@ const Register = ({ token, setToken }) => {
 
   const navigate = useNavigate();
 
-//   useEffect(() => {
-//     if (token !== null) {
-//       navigate('/dashboard');
-//     }
-//   }, [token, navigate]);
+  useEffect(() => {
+    if (token !== null) {
+      navigate('/sales');
+    }
+  }, [token, navigate]);
 
   const register = async () => {
     const isCustomer = false;

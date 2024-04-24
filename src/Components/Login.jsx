@@ -3,6 +3,7 @@ import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { React, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Navbar from './Navbar';
 
 function Login ({ token, setToken }) {
   const [email, setEmail] = useState('');
@@ -11,7 +12,7 @@ function Login ({ token, setToken }) {
 
   useEffect(() => {
     if (token !== null) {
-      navigate('/create');
+      navigate('/sales');
     }
   }, [token, navigate]);
 
@@ -25,7 +26,7 @@ function Login ({ token, setToken }) {
         alert(response.data.error);
       } else {
         if (response.data.token !== undefined) {
-            setToken(response.data.token);
+          setToken(response.data.token);
         }
       }
     } catch (err) {
@@ -35,6 +36,7 @@ function Login ({ token, setToken }) {
 
   return (
     <>
+      <Navbar />
       <div className={'d-flex justify-content-center align-items-center'} style={{ paddingTop: '8%' }}>
         <Paper sx={{ padding: '2%', width: '50%', height: '350px' }} align='center' id="page-login">
           <h1 className="h2 mb-3 fw-normal" style={{ color: 'green', fontFamily: 'Alice' }} >Sign In</h1>

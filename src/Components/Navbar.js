@@ -15,18 +15,6 @@ const Navbar = () => {
             <a onClick={() => navigate('/')}>Home</a>
           </li>
           <li>
-            <a onClick={() => navigate('/create')}>Create</a>
-          </li>
-          <li>
-            <a onClick={() => navigate('/validate')}>Validate</a>
-          </li>
-          <li>
-            <a onClick={() => navigate('/send')}>Send</a>
-          </li>
-          <li>
-            <a onClick={() => navigate('/sales')}>Sales</a>
-          </li>
-          <li>
             <a onClick={() => navigate('/login')} className="primary-button"> Login </a>
           </li>
         </ul>

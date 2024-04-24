@@ -6,9 +6,8 @@ import Footer from "./Components/Footer";
 import Home from "./Components/Home";
 import InvoiceForm from './Components/InvoiceForm';
 import Login from './Components/Login';
-import Navbar from "./Components/Navbar";
 import Register from './Components/Register';
-import Sales from "./Components/Sales";
+import Sales from './Components/Sales';
 import Testimonial from "./Components/Testimonial";
 import Work from "./Components/Work";
 
@@ -26,15 +25,14 @@ function App() {
   }
   return (
     <div className="App">
-      <Navbar/>
       <Routes>
         <Route path='/' element={<Home />}/>
-        <Route path='/create' element={<InvoiceForm token={token} />}/>
-        <Route path='/validate' element={<Work />}/>
-        <Route path='/send' element={<Testimonial />}/>
-        <Route path='/sales' element={<Sales />}/>
+        <Route path='/create' element={<InvoiceForm token={token} setToken={(token) => setTokenAbstract(token)}/>} />
+        <Route path='/validate' element={<Work token={token} setToken={(token) => setTokenAbstract(token)}/>} />
+        <Route path='/send' element={<Testimonial token={token} setToken={(token) => setTokenAbstract(token)}/>} />
         <Route path='/login' element={<Login token={token} setToken={(token) => setTokenAbstract(token)}/>} />
         <Route path='/register' element={<Register token={token} setToken={(token) => setTokenAbstract(token)}/>} />
+        <Route path='/sales' element={<Sales token={token} setToken={(tokne) => setTokenAbstract(token)}/>} />
       </Routes>
       {/* <Home />
       <About />
