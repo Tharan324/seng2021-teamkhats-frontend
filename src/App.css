@@ -45,6 +45,7 @@ nav {
   color: black;
   font-size: 1.3rem;
   font-weight: 600;
+  cursor: pointer;
   list-style-type: none;
 }
 .navbar-links-container li {

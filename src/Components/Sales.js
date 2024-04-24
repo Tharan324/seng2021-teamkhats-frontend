@@ -1,6 +1,7 @@
 import React from "react";
 import { Chart as ChartJS, defaults } from "chart.js/auto";
 import { Line } from "react-chartjs-2";
+import SalesTable from "./SalesTable";
 
 import revenueData from "../SalesData/data.json"
 
@@ -33,6 +34,7 @@ const Sales = () => {
                 },
             }}
             />
+        <SalesTable className="sales-table"/>
       </div>
     )
 }

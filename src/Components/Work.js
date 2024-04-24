@@ -12,12 +12,12 @@ const Work = () => {
     },
     {
       image: ChooseMeals,
-      title: "Invoice Validation",
+      title: "Validate Invoices",
       text: "Validate your invoice against all AU/NZ UBL & PEPPOL business rules.",
     },
     {
       image: DeliveryMeals,
-      title: "Invoice Sending",
+      title: "Send Invoices",
       text: "Forget about unreadable xml invoices, directly to your customer's email",
     },
   ];

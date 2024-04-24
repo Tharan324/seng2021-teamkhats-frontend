@@ -16,12 +16,12 @@ const Home = () => {
     },
     {
       image: ValidateImg,
-      title: "Invoice Validation",
+      title: "Validate Invoices",
       text: "Validate your invoice against all AU/NZ UBL & PEPPOL business rules.",
     },
     {
       image: SendImg,
-      title: "Invoice Sending",
+      title: "Send Invoices",
       text: "Forget about unreadable xml invoices, directly to your customer's email",
     },
   ];
