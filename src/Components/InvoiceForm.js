@@ -34,6 +34,7 @@ function InvoiceForm ({ token, setToken }) {
   const [paymentBsb, setPaymentBsb] = useState('');
   const [allItems, setAllItems] = useState([]);
   const [index, setIndex] = useState(0);
+  const [invoiceName, setInvoiceName] = useState('');
 
   const navigate = useNavigate();
 
@@ -91,11 +92,11 @@ function InvoiceForm ({ token, setToken }) {
       console.log(token);
       try {
         // http://khatsauthentication.alwaysdata.net/
-        await axios.post('http://localhost:3001/khats/createInvoice', {
+        await axios.post('http://localhost:3001/khats/createInvoice', {invoiceData: formData, invoiceName: invoiceName }, {
           headers: {
             authorization: token // Set Authorization header with token
           }
-        }, formData);
+        });
         navigate('/sales')
       } catch (err) {
         alert(err)
@@ -125,6 +126,14 @@ function InvoiceForm ({ token, setToken }) {
           <Grid align='center'>
             <form onSubmit={handleSubmit}>
               <h1> Invoice Creation </h1>
+              <TextField
+                value={invoiceName}
+                onChange={e => setInvoiceName(e.target.value)}
+                margin='normal'
+                required
+                fullWidth
+                label='Invoice Name'
+              />
               <h2>Customer Details</h2>
               <TextField
                 value={customerId}
