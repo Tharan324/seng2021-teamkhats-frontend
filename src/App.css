@@ -344,7 +344,21 @@ nav {
   font-size: 35px;
   margin-bottom: 15px;
 }
-
+.modalStyle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 400px;
+  border: 2px solid #000;
+  padding: 20px;
+  min-width: 10%;
+  background-color: white;
+}
+.modalInput {
+  margin: 10px;
+}
 @media (max-width: 1000px) {
   .navbar-links-container a {
     margin-right: 1rem;

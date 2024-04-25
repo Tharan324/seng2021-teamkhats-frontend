@@ -10,6 +10,19 @@ const Register = ({ token, setToken }) => {
   const [lastName, setLastName] = useState('');
   const [password2, setPassword2] = useState('');
   const [number, setNumber] = useState('');
+  const [canRegister, setCanRegister] = useState(false);
+  
+  const validateEmail = (newEmail) => {
+    return String(newEmail)
+        .toLowerCase()
+        .match(
+            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        );
+  };
+
+  useEffect(() => {
+    setCanRegister((password1 === password2) && validateEmail(email) && password1.length >= 5 && number.length === 10)
+  }, [email, password1, password2, number])
 
   const navigate = useNavigate();
 
@@ -103,7 +116,7 @@ const Register = ({ token, setToken }) => {
           <br />
           <br />
           <p> Already have an account? <a href='#' onClick={() => navigate('/login')}> Login </a></p>
-          <Button variant="contained" onClick={register} >Register</Button>
+          <Button variant="contained" disabled={!canRegister} onClick={register} >Register</Button>
         </Paper>
       </div>
     </>
