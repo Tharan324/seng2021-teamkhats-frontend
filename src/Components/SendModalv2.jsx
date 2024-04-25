@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 
-export default function SendModalv2 ({ fileId }) {
+export default function SendModalv2 ({ fileId, setUpdate, update }) {
   // const token = '0b93479c-996f-4aa5-b932-a30c5e8fe41d';
   const token = JSON.parse(localStorage.getItem('token'));
   const [open, setOpen] = React.useState(false);
@@ -31,6 +31,7 @@ export default function SendModalv2 ({ fileId }) {
         );
   };
   const handleSubmit = async () => {
+    setOpen(false)
     try {
       const response = await axios.post('http://localhost:3001/khats/sendMultiple', 
       { recipient: email, fileIds: [fileId] },
@@ -39,6 +40,7 @@ export default function SendModalv2 ({ fileId }) {
           authorization: token 
         }
       });
+      setUpdate(update + 1)
       console.log(response.data);
     } catch (err) {
       console.log('couldn\'t send the email')

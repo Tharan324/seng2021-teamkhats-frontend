@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Chart as ChartJS, defaults } from "chart.js/auto";
 import { Line } from "react-chartjs-2";
 
-export default function SalesGraph() {
+export default function SalesGraph({ update }) {
   const [revenueData, setRevenueData] = useState(null);
   useEffect(() => {
     const fetchData = async () => {
@@ -21,7 +21,7 @@ export default function SalesGraph() {
     };
 
     fetchData();
-  }, []);
+  }, [update]);
 
   if (!revenueData) return (
     <div style={{ width: '100%', height:250, border: '1px solid black' }}></div>

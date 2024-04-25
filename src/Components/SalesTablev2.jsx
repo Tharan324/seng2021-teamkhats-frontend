@@ -9,7 +9,7 @@ import { FixedSizeList } from 'react-window';
 
 
 
-export default function SalesTablev2() {
+export default function SalesTablev2({ setUpdate, update }) {
   const [filesData, setFilesData] = useState(null);
   function renderRow({ index, style}) {
     console.log(index, style);
@@ -17,7 +17,7 @@ export default function SalesTablev2() {
       <ListItem style={style} key={index} component="div" disablePadding>
         <ListItemText primary={`Item ${index + 1}`} />
         <RenderBtn fileId={filesData[index].id} />
-        <SendModalv2 fileId={filesData[index].id} />
+        <SendModalv2 fileId={filesData[index].id} setUpdate={setUpdate} update={update} />
       </ListItem>
     );
   }

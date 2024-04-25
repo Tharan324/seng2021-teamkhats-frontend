@@ -9,6 +9,7 @@ import SalesGraph from "./SalesGraph";
 
 const Sales = ({ token, setToken }) => {
   console.log(ChartJS, defaults)
+  const [update, setUpdate] = React.useState(0);
   return (
     <>
       <NavbarInside token={token} setToken={setToken} />
@@ -39,9 +40,9 @@ const Sales = ({ token, setToken }) => {
             },
           }}
         /> */}
-        <SalesGraph />
+        <SalesGraph update={update} />
         {/* <SalesTable className="sales-table" /> */}
-        <SalesTablev2 className="sales-table" />
+        <SalesTablev2 className="sales-table" setUpdate={setUpdate} update={update} />
       </div>
     </>
   )
