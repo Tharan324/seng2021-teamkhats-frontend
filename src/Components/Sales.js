@@ -1,18 +1,21 @@
 import { Chart as ChartJS, defaults } from "chart.js/auto";
-import React from "react";
 import { Line } from "react-chartjs-2";
-import revenueData from "../SalesData/data";
+import React from "react";
+// import revenueData from "../SalesData/data";
 import NavbarInside from "./NavbarInside";
-import SalesTable from "./SalesTable";
+// import SalesTable from "./SalesTable";
+import SalesTablev2 from "./SalesTablev2";
+import SalesGraph from "./SalesGraph";
 
 const Sales = ({ token, setToken }) => {
   console.log(ChartJS, defaults)
+  const [update, setUpdate] = React.useState(0);
   return (
     <>
       <NavbarInside token={token} setToken={setToken} />
       <div className="dataCard-revenueCard">
         <p className="graph-heading">Total Revenue</p>
-        <Line
+        {/* <Line
           data={{
             labels: revenueData.map((data) => data.label),
             datasets: [
@@ -36,8 +39,10 @@ const Sales = ({ token, setToken }) => {
               },
             },
           }}
-        />
-        <SalesTable className="sales-table" />
+        /> */}
+        <SalesGraph update={update} />
+        {/* <SalesTable className="sales-table" /> */}
+        <SalesTablev2 className="sales-table" setUpdate={setUpdate} update={update} />
       </div>
     </>
   )
