@@ -1,13 +1,35 @@
 import { Paper } from '@mui/material';
 import React from 'react';
 import NavbarInside from "./NavbarInside";
+import axios from 'axios';
 
 const Work = ({ token, setToken }) => {
-  const token1 = '0b93479c-996f-4aa5-b932-a30c5e8fe41d';
+  // const token1 = JSON.parse(localStorage.getItem('token'));
   const [file, setFile] = React.useState(null);
 
   const handleSubmit = async () => {
-    console.log('validate');
+    validateInvocie()
+  }
+  const validateInvocie = async () => {
+    const formData = new FormData();
+    formData.append('file', file);
+    console.log('trying to validate')
+    try {
+      const response = await axios.post('http://localhost:3001/khats/validateInvoice',
+        formData,
+        {
+          headers: {
+            authorization: JSON.parse(localStorage.getItem('token'))
+          }
+        }
+      );
+      console.log(response.data)
+      const url = response.data.url;
+      window.open(url, '_blank');
+      
+    } catch (err) {
+      console.log(err.response && err.response.data.error ? err.response.data.error : 'Failed to login');
+    }
   }
   return (
     <>

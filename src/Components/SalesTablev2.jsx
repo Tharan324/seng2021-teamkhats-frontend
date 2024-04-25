@@ -13,9 +13,10 @@ export default function SalesTablev2({ setUpdate, update }) {
   const [filesData, setFilesData] = useState(null);
   function renderRow({ index, style}) {
     console.log(index, style);
+    console.log(filesData[index])
     return (
       <ListItem style={style} key={index} component="div" disablePadding>
-        <ListItemText primary={`Item ${index + 1}`} />
+        <ListItemText primary={filesData[index].originalName} />
         <RenderBtn fileId={filesData[index].id} />
         <SendModalv2 fileId={filesData[index].id} setUpdate={setUpdate} update={update} />
       </ListItem>
@@ -29,7 +30,7 @@ export default function SalesTablev2({ setUpdate, update }) {
             authorization: JSON.parse(localStorage.getItem('token'))
           }
         });
-        console.log('got the files');
+        console.log('got the files', JSON.parse(localStorage.getItem('token')));
         setFilesData(response.data.files);
       } catch (err) {
         console.log(err.response && err.response.data.error ? err.response.data.error : 'Failed to fetch files');
