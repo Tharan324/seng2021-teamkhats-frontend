@@ -16,7 +16,7 @@ function App() {
   if (localStorage.getItem('token') && localStorage.getItem('token') !== "undefined") {
     isToken = JSON.parse(localStorage.getItem('token'));
   }
-
+  const [update, setUpdate] = useState(0);
   const [token, setToken] = useState(isToken);
 
   const setTokenAbstract = (token) => {
@@ -27,12 +27,12 @@ function App() {
     <div className="App">
       <Routes>
         <Route path='/' element={<Home />}/>
-        <Route path='/create' element={<InvoiceForm token={token} setToken={(token) => setTokenAbstract(token)}/>} />
+        <Route path='/create' element={<InvoiceForm setUpdate={setUpdate} update={update} token={token} setToken={(token) => setTokenAbstract(token)}/>} />
         <Route path='/validate' element={<Work token={token} setToken={(token) => setTokenAbstract(token)}/>} />
         <Route path='/send' element={<Testimonial token={token} setToken={(token) => setTokenAbstract(token)}/>} />
         <Route path='/login' element={<Login token={token} setToken={(token) => setTokenAbstract(token)}/>} />
         <Route path='/register' element={<Register token={token} setToken={(token) => setTokenAbstract(token)}/>} />
-        <Route path='/sales' element={<Sales token={token} setToken={(token) => setTokenAbstract(token)}/>} />
+        <Route path='/sales' element={<Sales setUpdate={setUpdate} update={update} token={token} setToken={(token) => setTokenAbstract(token)}/>} />
       </Routes>
       {/* <Home />
       <About />

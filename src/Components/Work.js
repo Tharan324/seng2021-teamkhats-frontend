@@ -15,7 +15,7 @@ const Work = ({ token, setToken }) => {
     formData.append('file', file);
     console.log('trying to validate')
     try {
-      const response = await axios.post('http://localhost:3001/khats/validateInvoice',
+      const response = await axios.post('https://khatsauthentication.alwaysdata.net/khats/validateInvoice',
         formData,
         {
           headers: {
