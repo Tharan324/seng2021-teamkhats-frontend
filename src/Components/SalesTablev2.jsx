@@ -25,7 +25,7 @@ export default function SalesTablev2({ setUpdate, update }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/khats/getAllFilesData', {
+        const response = await axios.get('https://khatsauthentication.alwaysdata.net/khats/getAllFilesData', {
           headers: {
             authorization: JSON.parse(localStorage.getItem('token'))
           }
@@ -38,7 +38,7 @@ export default function SalesTablev2({ setUpdate, update }) {
     };
 
     fetchData();
-  }, []);
+  }, [update]);
 
   if (!filesData) return (
     <div style={{ width: '100%', height:250, border: '1px solid black' }}></div>

@@ -28,7 +28,7 @@ const Testimonial = ({ token, setToken }) => {
       alert("file incorrect");
     } else {
       try {
-        const response = await axios.post('http://localhost:3001/khats/sendMultiple',
+        const response = await axios.post('https://khatsauthentication.alwaysdata.net/khats/sendMultiple',
           { recipient: email, file },
           {
             headers: {

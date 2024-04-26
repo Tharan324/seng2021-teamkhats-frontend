@@ -8,7 +8,7 @@ export default function SalesGraph({ update }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/khats/getRevenue', {
+        const response = await axios.get('https://khatsauthentication.alwaysdata.net/khats/getRevenue', {
           headers: {
             authorization: JSON.parse(localStorage.getItem('token'))
           }

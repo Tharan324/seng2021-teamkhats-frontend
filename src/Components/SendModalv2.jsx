@@ -33,7 +33,7 @@ export default function SendModalv2 ({ fileId, setUpdate, update }) {
   const handleSubmit = async () => {
     setOpen(false)
     try {
-      const response = await axios.post('http://localhost:3001/khats/sendMultiple', 
+      const response = await axios.post('https://khatsauthentication.alwaysdata.net/khats/sendMultiple', 
       { recipient: email, fileIds: [fileId] },
       {
         headers: {

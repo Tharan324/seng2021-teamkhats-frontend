@@ -6,7 +6,7 @@ import Logo from "../Assets/Screen Shot 2024-04-23 at 11.14.32 pm.png";
 const NavbarInside = ({ token, setToken }) => {
     const logout = async () => {
         try {
-            await axios.delete('http://localhost:3001/khats/auth/logout', {}, {
+            await axios.delete('https://khatsauthentication.alwaysdata.net/khats/auth/logout', {}, {
                 headers: {
                     authorization: `${token}`
                 }

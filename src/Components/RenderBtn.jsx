@@ -10,7 +10,7 @@ const RenderBtn = ({ fileId }) => {
   const renderFile = async () => {
     console.log('trying to render')
     try {
-      const response = await axios.post('http://localhost:3001/khats/renderInvoice',
+      const response = await axios.post('https://khatsauthentication.alwaysdata.net/khats/renderInvoice',
         { fileId },
         {
           headers: {

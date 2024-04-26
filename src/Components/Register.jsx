@@ -37,7 +37,7 @@ const Register = ({ token, setToken }) => {
     console.log(typeof number)
     console.log(number.length)
     try {
-      const response = await axios.post('http://localhost:3001/khats/auth/register', {
+      const response = await axios.post('https://khatsauthentication.alwaysdata.net/khats/auth/register', {
         nameFirst: firstName,
         nameLast: lastName,
         email: email,

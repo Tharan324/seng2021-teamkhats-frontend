@@ -18,7 +18,7 @@ function Login ({ token, setToken }) {
 
   const login = async () => {
     try {
-      const response = await axios.post('http://localhost:3001/khats/auth/login', {
+      const response = await axios.post('https://khatsauthentication.alwaysdata.net/khats/auth/login', {
         email,
         password
       });

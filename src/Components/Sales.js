@@ -7,9 +7,8 @@ import NavbarInside from "./NavbarInside";
 import SalesTablev2 from "./SalesTablev2";
 import SalesGraph from "./SalesGraph";
 
-const Sales = ({ token, setToken }) => {
+const Sales = ({ token, setToken, update, setUpdate }) => {
   console.log(ChartJS, defaults)
-  const [update, setUpdate] = React.useState(0);
   return (
     <>
       <NavbarInside token={token} setToken={setToken} />

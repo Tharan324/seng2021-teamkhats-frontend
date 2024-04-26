@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import Item from './ItemForm';
 import NavbarInside from './NavbarInside';
 
-function InvoiceForm ({ token, setToken }) {
+function InvoiceForm ({ token, setToken, setUpdate, update }) {
   const [customerId, setCustomerId] = useState('');
   const [customerName, setCustomerName] = useState('');
   const [customerCity, setCustomerCity] = useState('');
@@ -92,11 +92,12 @@ function InvoiceForm ({ token, setToken }) {
       console.log(token);
       try {
         // http://khatsauthentication.alwaysdata.net/
-        await axios.post('http://localhost:3001/khats/createInvoice', {invoiceData: formData, invoiceName: invoiceName }, {
+        await axios.post('https://khatsauthentication.alwaysdata.net/khats/createInvoice', {invoiceData: formData, invoiceName: invoiceName }, {
           headers: {
             authorization: token // Set Authorization header with token
           }
         });
+        setUpdate(update + 1);
         navigate('/sales')
       } catch (err) {
         alert(err)

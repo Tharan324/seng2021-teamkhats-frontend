@@ -31,7 +31,7 @@ export default function SendModal ({ fileIds, setEnableCheck }) {
   };
   const handleSubmit = async () => {
     try {
-      const response = await axios.post('http://localhost:3001/khats/sendMultiple', 
+      const response = await axios.post('https://khatsauthentication.alwaysdata.net/khats/sendMultiple', 
       { recipient: email, fileIds },
       {
         headers: {
